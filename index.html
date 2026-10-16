@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+Temperatura média diária
+</title>
+
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+>
+
+<link
+    rel="stylesheet"
+    href="css/estilo.css"
+>
+
+</head>
+
+
+<body>
+
+
+<div id="map"></div>
+
+
+<div id="loading">
+    A carregar mapa meteorológico…
+</div>
+
+
+<header id="titulo-mapa">
+
+    <div class="titulo-principal">
+        Temperatura média diária
+    </div>
+
+    <div class="linha-titulo">
+
+        <strong id="data-atual">
+            --
+        </strong>
+
+        <span>
+            · IDW 20 m
+        </span>
+
+    </div>
+
+</header>
+
+
+<button
+    id="botao-camadas"
+    title="Camadas"
+>
+    ☰ Camadas
+</button>
+
+
+<section
+    id="painel-camadas"
+    class="painel-fechado"
+>
+
+    <div class="painel-topo">
+
+        <strong>
+            Camadas
+        </strong>
+
+        <button
+            id="fechar-camadas"
+            title="Fechar"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <label class="linha-check">
+
+        <input
+            id="check-raster"
+            type="checkbox"
+            checked
+        >
+
+        Temperatura média
+
+    </label>
+
+
+    <label class="linha-check">
+
+        <input
+            id="check-isolinhas"
+            type="checkbox"
+            checked
+        >
+
+        Isolinhas
+
+    </label>
+
+
+    <label class="linha-check principal">
+
+        <input
+            id="check-labels-isolinhas"
+            type="checkbox"
+            checked
+        >
+
+        Etiquetas das isolinhas
+
+    </label>
+
+
+    <div class="separador-painel"></div>
+
+
+    <label class="linha-check secundaria">
+
+        <input
+            id="check-concelhos"
+            type="checkbox"
+            checked
+        >
+
+        Limites dos concelhos
+
+    </label>
+
+
+    <label class="linha-check secundaria">
+
+        <input
+            id="check-labels-concelhos"
+            type="checkbox"
+            checked
+        >
+
+        Nomes dos concelhos
+
+    </label>
+
+
+    <div class="separador-painel"></div>
+
+
+    <label
+        class="titulo-opacidade"
+        for="opacidade"
+    >
+
+        <span>
+            Opacidade IDW
+        </span>
+
+        <strong id="valor-opacidade">
+            92%
+        </strong>
+
+    </label>
+
+
+    <input
+        id="opacidade"
+        type="range"
+        min="35"
+        max="100"
+        value="92"
+        step="1"
+    >
+
+</section>
+
+
+<section id="legenda">
+
+    <div class="legenda-titulo">
+        Temperatura média
+    </div>
+
+    <div class="legenda-unidade">
+        °C
+    </div>
+
+    <div class="legenda-corpo">
+
+        <div id="barra-legenda"></div>
+
+        <div id="valores-legenda"></div>
+
+    </div>
+
+</section>
+
+
+<div id="informacao">
+
+    IDW 20 m
+
+    <span>
+        ·
+    </span>
+
+    Isolinhas 2 °C
+
+    <span>
+        ·
+    </span>
+
+    escala fixa
+
+</div>
+
+
+<footer id="temporal">
+
+
+    <div class="botoes">
+
+        <button
+            id="primeiro"
+            title="Primeiro dia"
+        >
+            |◀
+        </button>
+
+
+        <button
+            id="anterior"
+            title="Dia anterior"
+        >
+            ◀
+        </button>
+
+
+        <button
+            id="play"
+            class="play"
+            title="Play/Pausa"
+        >
+            ▶
+        </button>
+
+
+        <button
+            id="seguinte"
+            title="Dia seguinte"
+        >
+            ▶
+        </button>
+
+
+        <button
+            id="ultimo"
+            title="Último dia"
+        >
+            ▶|
+        </button>
+
+    </div>
+
+
+    <div class="area-slider">
+
+        <input
+            id="slider"
+            type="range"
+            min="0"
+            max="0"
+            value="0"
+            step="1"
+        >
+
+
+        <div class="datas">
+
+            <span id="data-inicio">
+                --
+            </span>
+
+            <strong id="data-slider">
+                --
+            </strong>
+
+            <span id="data-fim">
+                --
+            </span>
+
+        </div>
+
+    </div>
+
+
+</footer>
+
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+></script>
+
+<script
+    src="js/mapa.js"
+></script>
+
+
+</body>
+
+</html>
